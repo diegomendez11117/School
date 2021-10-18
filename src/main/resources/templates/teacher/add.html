@@ -1,10 +1,39 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
+<head th:replace="fragments :: head"></head>
 <body>
-    
+<form method="post" th:object="${teacher}">
+    <label>Name: </label>
+    <input type="text" th:field="*{name}" required>
+
+    <label>Last Name: </label>
+    <input type="text" th:field="*{lastname}" required>
+
+    <label>Date of Birth</label>
+    <input class="date-format" type="text" th:field="*{DOB}" placeholder="mm/dd/yyyy" id="input_date" required>
+
+    <label>Email: </label>
+    <input type="email" th:field="*{email}" required>
+
+    <label>Gender: </label>
+    <select name="columnSetting" th:field="*{gender}">
+        <option th:each="gender : ${T(com.training.school.models.AbstractEntity.Gender).values()}"
+                th:value="${gender}" th:text="${gender}"></option>
+    </select>
+
+    <label>Department:</label>
+    <input type="text" th:field="${teacher.department}" required>
+
+    <label>Evaluation:</label>
+    <input type="number" th:field="${teacher.evaluation}" required>
+
+    <label>Salary:</label>
+    <input type="number" th:field="${teacher.salary}" required>
+
+    <input type="submit">
+</form>
+
+<div th:replace="fragments :: scripts"></div>
+
 </body>
 </html>

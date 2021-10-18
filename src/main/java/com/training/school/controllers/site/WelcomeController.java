@@ -1,7 +1,4 @@
-package com.training.school.controllers;
-
-import com.training.school.models.Student;
-import com.training.school.models.data.StudentRepository;
+package com.training.school.controllers.site;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,16 +11,10 @@ import java.util.List;
 @RequestMapping("")
 public class WelcomeController {
 
-    @Autowired
-    private StudentRepository studentRepository;
-
     @GetMapping("")
     public String displayWelcome(Model model){
         String title = "Welcome Home";
-        List<Student> students = studentRepository.findAll();
         model.addAttribute("title",title);
-        model.addAttribute("students", students);
-
         return "index";
     }
 

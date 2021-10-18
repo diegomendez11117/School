@@ -2,12 +2,18 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="fragments :: head"></head>
 <body>
-<form method="post" th:object="${grade}">
+<form method="post" th:object="${classroom}">
     <label>Name: </label>
     <input type="text" th:field="*{name}" required>
 
     <label>Description: </label>
     <input type="text" th:field="*{description}" required>
+
+    <label>Floor: </label>
+    <input type="number" th:field="*{floor}" required>
+
+    <label>Quantity: </label>
+    <input type="number" th:field="*{quantity}" required>
 
     <input type="submit">
 </form>

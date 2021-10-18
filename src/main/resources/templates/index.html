@@ -5,6 +5,10 @@
     <title></title>
 </head>
 <body>
-    
+    <h1 th:text="${title}"></h1>
+    <h1>Hello</h1>
+    <div th:block th:each="student : ${students}">
+        <p th:text="${student.name}"></p>
+    </div>
 </body>
 </html>
