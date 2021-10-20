@@ -8,16 +8,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+
 @RestController
-@RequestMapping("")
 public class WelcomeController {
 
-    @GetMapping("")
-    public String displayWelcome(Model model){
-        String title = "Welcome Home";
-        model.addAttribute("title",title);
-        return "index";
+    @GetMapping("/welcome")
+    public String displayWelcome(){
+        return "Enrique Mendez Roger";
     }
 
 
